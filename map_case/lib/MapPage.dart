@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:map_case/UserPage.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({super.key});
@@ -21,7 +22,7 @@ class MapPage extends StatelessWidget {
               children: [
                 Positioned.fill(
                   child: Image.asset(
-                    'assets/map.jpg',
+                    'Assets/map.jpg',
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -38,7 +39,7 @@ class MapPage extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => const RegoinScreen(
                             regionName: "Asia",
-                            imagePath: 'assets/Asian.webp',
+                            imagePath: 'Assets/Asian.webp',
                           ),
                         ),
                       );
@@ -84,7 +85,7 @@ class MapPage extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => const RegoinScreen(
                             regionName: "Africa",
-                            imagePath: 'assets/africa.webp',
+                            imagePath: 'Assets/africa.webp',
                           ),
                         ),
                       );
@@ -107,7 +108,7 @@ class MapPage extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => const RegoinScreen(
                             regionName: "Australia",
-                            imagePath: 'assets/australia.png',
+                            imagePath: 'Assets/australia.png',
                           ),
                         ),
                       );
@@ -130,7 +131,7 @@ class MapPage extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => const RegoinScreen(
                             regionName: "North America",
-                            imagePath: 'assets/n-america.png',
+                            imagePath: 'Assets/n-america.png',
                           ),
                         ),
                       );
@@ -152,7 +153,7 @@ class MapPage extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => const RegoinScreen(
                             regionName: "South America",
-                            imagePath: 'assets/south-america.webp',
+                            imagePath: 'Assets/south-america.webp',
                           ),
                         ),
                       );
@@ -175,7 +176,7 @@ class MapPage extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => const RegoinScreen(
                             regionName: "Arctic",
-                            imagePath: 'assets/Arctic.jpg',
+                            imagePath: 'Assets/Arctic.jpg',
                           ),
                         ),
                       );
@@ -189,8 +190,28 @@ class MapPage extends StatelessWidget {
             );
           },
         ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.blue,
+          child: const Icon(
+            Icons.person,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    UserPage(fetchUsersCallback: _fetchUsersCallback),
+              ),
+            );
+          },
+        ),
       ),
     );
+  }
+
+  void _fetchUsersCallback() {
+    print('Fetching users...');
   }
 }
 
